@@ -12,12 +12,7 @@ import java.util.Optional;
 public class FruitServices implements IFruitServices {
 
     @Autowired
-    private final FruitRepo fruitRepo;
-
-    public FruitServices(FruitRepo fruitRepo) {
-        this.fruitRepo = fruitRepo;
-    }
-
+    private  FruitRepo fruitRepo;
 
     @Override
     public Fruit addFruit(Fruit fruit) {
@@ -54,7 +49,7 @@ public class FruitServices implements IFruitServices {
 
     @Override
     public List<Fruit> getAllFruits() {
-        return (List<Fruit>) fruitRepo.findAll();
+        return fruitRepo.findAll();
     }
 
 }
