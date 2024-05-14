@@ -1,6 +1,4 @@
 package cat.itacademy.barcelonactiva.Roca.Carla.s04.t02.n01.model.service;
-
-import cat.itacademy.barcelonactiva.Roca.Carla.s04.t02.n01.exception.FruitAlreadyExistsException;
 import cat.itacademy.barcelonactiva.Roca.Carla.s04.t02.n01.exception.FruitNotFoundException;
 import cat.itacademy.barcelonactiva.Roca.Carla.s04.t02.n01.model.domain.Fruit;
 import cat.itacademy.barcelonactiva.Roca.Carla.s04.t02.n01.model.repository.FruitRepo;
@@ -48,8 +46,7 @@ public class FruitServices implements IFruitServices {
         fruitRepo.deleteById(fruitFound.getId());
     }
 
-    //getFruitById is @Deprecated //use findById() instead
-    @Override
+     @Override
     public Fruit getFruitById(int id) {
         return fruitRepo.findById(id).orElseThrow(() -> new FruitNotFoundException("Fruit with Id " + id + " is not found"));
 
