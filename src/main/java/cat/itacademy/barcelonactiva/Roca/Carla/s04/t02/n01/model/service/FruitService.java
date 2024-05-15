@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class FruitServices implements IFruitServices {
+public class FruitService implements IFruitServices {
 
     @Autowired
     private  FruitRepo fruitRepo;
@@ -29,21 +29,21 @@ public class FruitServices implements IFruitServices {
 
             return fruitRepo.save(updatedFruit);
         } else {
-            throw new FruitNotFoundException("Fruit with Id " + id + " is not found");
+            throw new FruitNotFoundException(id);
         }
 
     }
 
     @Override
     public void deleteFruitById(int id) {
-        Fruit fruitFound = fruitRepo.findById(id).orElseThrow(() -> new FruitNotFoundException("Fruit with Id " + id + " is not found"));
+        Fruit fruitFound = fruitRepo.findById(id).orElseThrow(() -> new FruitNotFoundException(id));
 
         fruitRepo.deleteById(fruitFound.getId());
     }
 
      @Override
     public Fruit getFruitById(int id) {
-        return fruitRepo.findById(id).orElseThrow(() -> new FruitNotFoundException("Fruit with Id " + id + " is not found"));
+        return fruitRepo.findById(id).orElseThrow(() -> new FruitNotFoundException(id));
 
     }
 

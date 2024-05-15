@@ -5,8 +5,8 @@ public class FruitNotFoundException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
-    public FruitNotFoundException(String message) {
-        super(message);
+    public FruitNotFoundException(int id) {
+        super("Fruit not found with id "+id);
     }
 }
 
