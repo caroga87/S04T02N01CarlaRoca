@@ -29,21 +29,21 @@ public class FruitService implements IFruitServices {
 
             return fruitRepo.save(updatedFruit);
         } else {
-            throw new FruitNotFoundException(id);
+            throw new FruitNotFoundException("Fruit not found with id "+id);
         }
 
     }
 
     @Override
     public void deleteFruitById(int id) {
-        Fruit fruitFound = fruitRepo.findById(id).orElseThrow(() -> new FruitNotFoundException(id));
+        Fruit fruitFound = fruitRepo.findById(id).orElseThrow(() -> new FruitNotFoundException("Fruit not found with id "+id));
 
         fruitRepo.deleteById(fruitFound.getId());
     }
 
      @Override
     public Fruit getFruitById(int id) {
-        return fruitRepo.findById(id).orElseThrow(() -> new FruitNotFoundException(id));
+        return fruitRepo.findById(id).orElseThrow(() -> new FruitNotFoundException("Fruit not found with id "+id));
 
     }
 
