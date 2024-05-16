@@ -128,7 +128,7 @@
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "getFruitById/{id}",
 			"request": {
 				"method": "GET",
 				"header": []
